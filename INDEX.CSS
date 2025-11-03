@@ -96,3 +96,40 @@ body {
     clip: rect(1px, 1px, 1px, 1px);
     white-space: nowrap;
 }
+
+/* Estilos para el generador de texto (3 botones + salida) */
+.text-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 18px;
+}
+.text-button {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(180deg,#0078d4 0%, #0063b1 100%);
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(3, 102, 214, 0.12);
+    transition: transform 140ms ease, filter 140ms ease;
+}
+.text-button:hover { transform: translateY(-3px); filter: brightness(1.02); }
+.text-button:active { transform: translateY(-1px) scale(.995); }
+
+.output {
+    margin-top: 12px;
+    padding: 12px 16px;
+    background: #f7f9fc;
+    border-radius: 8px;
+    border: 1px solid #e6ecf5;
+    max-width: 720px;
+    text-align: center;
+    color: #13314b;
+}
+
+@media (max-width: 480px) {
+    .text-button { padding: 8px 10px; font-size: 14px; }
+    .output { font-size: 14px; padding: 10px; }
+}

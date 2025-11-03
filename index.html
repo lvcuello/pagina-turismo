@@ -13,7 +13,7 @@
         <button  class="flag-button" id="cambioverde" onclick="verde()">Italia</button>
         <button  class="flag-button" id="cambioazul" onclick="azul()">Francia</button>
     </div>
-    <div>
+    <div class="hero">
         <h1>
             Explora distintos destinos
         </h1>
@@ -21,28 +21,54 @@
             Selecciona un pais para descubrir su belleza
         </h3>
     </div>
-        <script>
+
+    <!-- Sección: 3 botones nuevos que muestran un texto al pulsarlos -->
+    <section class="botones-nuevos" aria-label="Botones con texto">
+        <div class="text-buttons">
+            <button class="text-button" id="nuevo1" type="button">Nuevo 1</button>
+            <button class="text-button" id="nuevo2" type="button">Nuevo 2</button>
+            <button class="text-button" id="nuevo3" type="button">Nuevo 3</button>
+        </div>
+        <div id="outputNuevo" role="region" aria-live="polite" class="output">Pulsa uno de los botones para ver su texto.</div>
+    </section>
+
+    <script>
+        // --- Funciones de cambio de color existentes ---
         let cambiodefondo = document.getElementById("fondo");
         function azul(){
             cambiodefondo.style.backgroundColor = "blue";
-
         }
-                function amarillo(){
+        function amarillo(){
             cambiodefondo.style.backgroundColor = "yellow";
-
         }
-                function rojo(){
+        function rojo(){
             cambiodefondo.style.backgroundColor = "red";
-
         }
-                function verde(){
+        function verde(){
             cambiodefondo.style.backgroundColor = "green";
-
         }
-                function celeste(){
+        function celeste(){
             cambiodefondo.style.backgroundColor = "lightblue";
-
         }
+
+        // --- Nuevo: mensajes para los 3 botones nuevos ---
+        const outputNuevo = document.getElementById('outputNuevo');
+        const mensajesNuevo = {
+            nuevo1: 'Texto del botón nuevo 1: descubre playas y sol.',
+            nuevo2: 'Texto del botón nuevo 2: explora museos y cultura local.',
+            nuevo3: 'Texto del botón nuevo 3: vive la aventura al aire libre.'
+        };
+
+        document.getElementById('nuevo1').addEventListener('click', () => {
+            outputNuevo.textContent = mensajesNuevo.nuevo1;
+        });
+        document.getElementById('nuevo2').addEventListener('click', () => {
+            outputNuevo.textContent = mensajesNuevo.nuevo2;
+        });
+        document.getElementById('nuevo3').addEventListener('click', () => {
+            outputNuevo.textContent = mensajesNuevo.nuevo3;
+        });
     </script>
+
 </body>
 </html>

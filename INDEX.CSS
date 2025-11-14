@@ -60,6 +60,14 @@ body {
     user-select: none;
 }
 
+/* Estado cuando queremos agrandar visualmente un botón de bandera (p.ej. Italia) */
+.flag-button.flag-large {
+    transform: scale(1.18);
+    width: 118px; /* ligeramente más ancho */
+    height: 86px; /* ligeramente más alto */
+    box-shadow: 0 14px 36px rgba(24,39,75,0.16);
+}
+
 /* Label debajo de la bandera */
 .flag-button .label {
     margin-top: 6px;
@@ -133,3 +141,39 @@ body {
     .text-button { padding: 8px 10px; font-size: 14px; }
     .output { font-size: 14px; padding: 10px; }
 }
+
+
+#imagenes {
+    display: block;
+    margin: 18px auto 0;
+    max-width: 360px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: width 220ms ease, transform 220ms ease;
+}
+.imagen-grande {
+    max-width: 680px; 
+    width: 100%;
+    transform: scale(1.02);
+}
+
+@media (max-width: 800px) {
+    #imagenes { max-width: 520px; }
+    .imagen-grande { max-width: 520px; }
+}
+
+@media (max-width: 480px) {
+    #imagenes { max-width: 320px; }
+    .imagen-grande { max-width: 320px; }
+}
+imagen2-grande {
+    width: 500px;
+
+}
+
+  .imagen-grande {
+            width: 500px !important;
+            height: auto !important;
+            transition: width 0.3s;
+        

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Todas las imágenes tendrán el mismo tamaño, ahora aún más grande */
+        img {
+            width: 1000px;
+            height: auto;
+            transition: width 0.3s;
+        }
+        /* Si quieres mantener el efecto de agrandar para Italia, puedes ajustar .imagen-grande aquí */
+        /* .imagen-grande {
+            width: 400px !important;
+            height: auto !important;
+        } */
+    </style>
+</head>
+<a href="index.html">inicio</a>
+<a href="index2.html">pagina2</a>
+<a href="pagina2.html">pagina3</a>
+<body id="fondo">
+    <div class="color-buttons" aria-label="Botones para cambiar el color de fondo">
+        <button class="flag-button" id="cambioamarillo" onclick="amarillo()">Brasil</button>
+        <button  class="flag-button" id="cambioceleste" onclick="celeste()">Argentina</button>
+        <button  class="flag-button" id="cambiorojo" onclick="rojo()">Estados Unidos</button>
+        <button  class="flag-button" id="cambioverde" onclick="verde()">Italia</button>
+        <button  class="flag-button" id="cambioazul" onclick="azul()">Francia</button>
+    </div>
+    <div class="hero">
+        <h1>
+            Explora distintos destinos
+        </h1>
+        <h3>
+            Selecciona un país para descubrir su belleza
+        </h3>
+    </div>
+
+    <!-- Sección: 3 botones nuevos que muestran un texto al pulsarlos -->
+    <section class="botones-nuevos" aria-label="Botones con texto">
+        <div class="text-buttons">
+            <button class="text-button" id="nuevo1" type="button">Nuevo 1</button>
+            <button class="text-button" id="nuevo2" type="button">Nuevo 2</button>
+            <button class="text-button" id="nuevo3" type="button">Nuevo 3</button>
+        </div>
+        <div id="outputNuevo" role="region" aria-live="polite" class="output">Pulsa uno de los botones para ver su texto</div>
+    </section>
+    <img id="imagenes" src="img/BRASIL.jpeg" alt="">
+    <script>
+        // --- Funciones de cambio de color existentes ---
+        let cambiodefondo = document.getElementById("fondo");
+        let cambiodeimagen = document.getElementById("imagenes");
+
+        // Helper: quitar clase .flag-large de todos los botones de bandera
+        function clearFlagLarge() {
+            document.querySelectorAll('.flag-button').forEach(btn => btn.classList.remove('flag-large'));
+        }
+
+        function azul(){
+            clearFlagLarge();
+            cambiodefondo.style.backgroundColor = "blue";
+            cambiodeimagen.src="img/francia.avif";
+            cambiodeimagen.classList.remove('imagen-grande');
+        }
+        function amarillo(){
+            clearFlagLarge();
+            cambiodefondo.style.backgroundColor = "yellow";
+            cambiodeimagen.src="img/BRASIL.jpeg";
+            cambiodeimagen.classList.remove('imagen-grande');
+        }
+        function rojo(){
+            clearFlagLarge();
+            cambiodefondo.style.backgroundColor = "red";
+            cambiodeimagen.src="img/estatua.jpg";
+            cambiodeimagen.classList.remove('imagen-grande');
+        }
+        function verde(){
+            // Agrandar el botón de Italia y la imágen principal
+            clearFlagLarge();
+            document.getElementById('cambioverde').classList.add('flag-large');
+            cambiodefondo.style.backgroundColor = "green";
+            cambiodeimagen.src="img/images.jfif";
+            cambiodeimagen.classList.add('imagen-grande');
+        }
+        function celeste(){
+            clearFlagLarge();
+            cambiodefondo.style.backgroundColor = "lightblue";
+            cambiodeimagen.src="img/iguazu.jpg";
+            cambiodeimagen.classList.remove('imagen-grande');
+        }
+
+
+        const outputNuevo = document.getElementById('outputNuevo');
+        const mensajesNuevo = {
+            nuevo1: 'Texto del botón nuevo 1: descubre playas y sol.',
+            nuevo2: 'Texto del botón nuevo 2: explora museos y cultura local.',
+            nuevo3: 'Texto del botón nuevo 3: vive la aventura al aire libre.'
+        };
+
+        document.getElementById('nuevo1').addEventListener('click', () => {
+            outputNuevo.textContent = mensajesNuevo.nuevo1;
+        });
+        document.getElementById('nuevo2').addEventListener('click', () => {
+            outputNuevo.textContent = mensajesNuevo.nuevo2;
+        });
+        document.getElementById('nuevo3').addEventListener('click', () => {
+            outputNuevo.textContent = mensajesNuevo.nuevo3;
+        });
+    </script>
+	<footer>
+		<p>2025 Valen, Eve, Rebe, Franco, Aleksio </p>
+	</footer>
+</body>
+</html>

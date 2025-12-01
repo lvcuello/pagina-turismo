@@ -152,6 +152,7 @@ a.boton:focus {
 }
 
 
+/* Acordeón: layout y transiciones */
 .accordion {
   max-width: 1100px;
   margin: 20px auto;
@@ -174,21 +175,15 @@ a.boton:focus {
   font-weight: 700;
   cursor: pointer;
 }
-.accordion-toggle:focus {
-  outline: 2px solid rgba(0,0,0,0.08);
-  outline-offset: 2px;
-}
+.accordion-toggle:focus { outline: 2px solid rgba(0,0,0,0.08); outline-offset: 2px; }
+
 .accordion-panel {
   max-height: 0;
   overflow: hidden;
   transition: max-height 280ms ease;
 }
-.accordion-panel[aria-hidden="false"] {
- 
-}
 
-
-/* Esconder imagen por defecto y centrarla; mostrarla cuando el item está abierto */
+/* imagenes inicialmente invisibles (se muestran cuando .open en el item) */
 .accordion-panel img {
   display: block;
   margin: 12px auto;
@@ -197,11 +192,9 @@ a.boton:focus {
   height: auto;
   border-radius: 6px;
   transform-origin: center center;
-  transition: transform 220ms ease, opacity 220ms ease, filter 220ms ease;
+  transition: transform 220ms ease, opacity 220ms ease;
   cursor: pointer;
-
-  /* por defecto, invisible */
-  opacity: 0;
+  opacity: 0; /* se muestra cuando el panel está abierto */
   transform: scale(0.98);
   filter: blur(0.6px);
   pointer-events: none;

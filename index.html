@@ -6,14 +6,19 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body id="fondo">
-    <div class="color-buttons" aria-label="Botones para cambiar el color de fondo">
-        <button class="flag-button" id="cambioamarillo" onclick="amarillo()">Brasil</button>
-        <button  class="flag-button" id="cambioceleste" onclick="celeste()">Argentina</button>
-        <button  class="flag-button" id="cambiorojo" onclick="rojo()">Estados Unidos</button>
-        <button  class="flag-button" id="cambioverde" onclick="verde()">Italia</button>
-        <button  class="flag-button" id="cambioazul" onclick="azul()">Francia</button>
-    </div>
+
+	<header role="banner">
+		<nav class="barra">
+
+    
+<a class="boton" href="index.html">inicio</a>
+<a class="boton"href="index2.html">pagina2</a>
+<a class="boton" href="pagina2.html">pagina3</a>
+
+			
+		</nav>
+	</header>
+
     <div class="textos">
     <div class="titulo"><h2>Descubrí el mundo con nosotros</h2></div>
     <div id="texto1" onclick="otrotexto()"><p> El mundo está lleno de lugares increíbles esperando a ser explorados.</p></div> 
@@ -61,7 +66,7 @@
             cambiodeimagen.classList.remove('imagen-grande');
         }
         function verde(){
-            // Agrandar el botón de Italia y la imagen principal
+            // Agrandar el botón de Italia y la imagen principa
             clearFlagLarge();
             document.getElementById('cambioverde').classList.add('flag-large');
             cambiodefondo.style.backgroundColor = "green";

@@ -188,6 +188,7 @@ a.boton:focus {
 }
 
 
+/* Esconder imagen por defecto y centrarla; mostrarla cuando el item está abierto */
 .accordion-panel img {
   display: block;
   margin: 12px auto;
@@ -196,27 +197,34 @@ a.boton:focus {
   height: auto;
   border-radius: 6px;
   transform-origin: center center;
-  transition: transform 220ms ease, opacity 220ms ease;
+  transition: transform 220ms ease, opacity 220ms ease, filter 220ms ease;
   cursor: pointer;
+
+  /* por defecto, invisible */
+  opacity: 0;
+  transform: scale(0.98);
+  filter: blur(0.6px);
+  pointer-events: none;
 }
 
+/* cuando el panel esté abierto, mostrar la imagen */
+.accordion-item.open .accordion-panel img {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+  pointer-events: auto;
+}
 
+/* estado agrandado */
 .accordion-panel img.zoomed {
-  transform: scale(1.06);
-  opacity: 1;
-  z-index: 2;
+  transform: scale(1.12);
+  z-index: 10;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
 }
 
-
-.accordion-panel img.shrunk {
-  transform: scale(0.85);
-  opacity: 0.92;
-}
-
-
-.accordion-panel img:not(.zoomed):not(.shrunk) {
+/* preservar estado normal cuando no zoom */
+.accordion-panel img:not(.zoomed) {
   transform: none;
-  opacity: 1;
 }
 
 
@@ -224,4 +232,7 @@ a.boton:focus {
   .accordion-panel img { max-width: 100%; }
 }
 
+.barra{
+  display: inline-flex
 
+}
